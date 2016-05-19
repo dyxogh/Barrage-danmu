@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <title>无标题文档</title>
 <link rel="stylesheet" href="css/blz-danmu.css">
+<style>
+	.blz-control {
+		position:fixed;
+		bottom:40px;
+		left:0;
+		width:100%;
+		text-align:center;
+	}	
+</style>
 </head>
 
 <body>
@@ -13,9 +22,26 @@
     <li></li>
     <li></li>
 </ul>
+<div class="blz-control">
+<button onclick="$('.blz-danmu').danmuOpen()">open</button>
+<button onclick="$('.blz-danmu').danmuClose()">close</button>
+<button data-blz-send>send</button>
+</div>
 <script src="js/zepto.js"></script>
 <script src="js/blz-danmu.js"></script>
 <script>
+var i=1;
+
+function sendWish(){
+	i=i>3?1:i++;
+	var data={
+		name:'哈哈',
+		words:i,
+		url:'images/'+i+'.jpg'
+	}
+	$('.blz-danmu').sendWish(data);
+}
+$(document).on('click','[data-blz-send]',sendWish);	
 +function($){
 	var data={
 			name:'李小龙',
@@ -32,10 +58,15 @@
 			words:'爽快的交出存折的密码，顺利的收藏好初恋的情书，用结婚的壮举给所有，单身汉带来最大的鼓舞！',
 			url:'images/1.jpg'
 		};
-	$('[data-blz-danmu]').sendWish(data);
+	var data3={
+			name:'章子怡',
+			words:'爽！',
+			url:'images/2.jpg'
+		};			
+	$('[data-blz-danmu]').sendWish(data);	
 	$('[data-blz-danmu]').sendWish(data1);
 	$('[data-blz-danmu]').sendWish(data2);
-	$('[data-blz-danmu]').danmuOpen();
+	$('[data-blz-danmu]').sendWish(data3).danmuOpen();
 }(window.Zepto||window.jQuery);
 </script>
 </body>

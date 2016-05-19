@@ -7,6 +7,9 @@ body {
 	width:100%;
 	overflow-x:hidden;
 }
+.blz-danmu-stop {
+	transition-duration:999999999999999s !important;
+	}
 .blz-danmu {
 	position:absolute;
 	top:0;
