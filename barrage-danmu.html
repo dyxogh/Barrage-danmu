@@ -30,16 +30,16 @@
 <script src="js/zepto.js"></script>
 <script src="js/blz-danmu.js"></script>
 <script>
-var i=1;
-
+var ihaha=0;
 function sendWish(){
-	i=i>3?1:i++;
+	ihaha=ihaha>=3?1:ihaha+1;
 	var data={
 		name:'哈哈',
-		words:i,
-		url:'images/'+i+'.jpg'
+		words:ihaha,
+		url:'images/'+ihaha+'.jpg'
 	}
 	$('.blz-danmu').sendWish(data);
+	console.log(ihaha);
 }
 $(document).on('click','[data-blz-send]',sendWish);	
 +function($){

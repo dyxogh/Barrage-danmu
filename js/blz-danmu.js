@@ -19,7 +19,8 @@
 	
 	//发送弹幕消息
     Danmu.prototype.sendWish=function(data) {
-        this.data.splice(++this.newIndex,0, data);
+		this.newIndex=this.newIndex+1;
+        this.data.splice(this.newIndex,0, data);
     };
 	
     //为每个弹幕盒子分配一条消息
@@ -50,7 +51,7 @@
 	//添加弹幕消息
 	function addDanmu(data,elem){
 		if (data.data.length !== 0&&data.isOpen===false) {
-			if(data.index >= data.data.length){data.index = 0;}
+			if(data.index >= data.data.length){data.newIndex=data.index = 0;}
 			data.newIndex = data.newIndex>data.index?data.newIndex:data.index;
 			var $target = assignMessage($(elem), data.data[data.index++]);
 			var w=$target.width()+data.spacing;
